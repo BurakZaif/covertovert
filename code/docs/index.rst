@@ -6,7 +6,14 @@
 Covert Channel documentation
 ============================
 
-Please add your names, group ID, and your link to the forked public repository here by editing `index.rst` in the docs folder.
+Burak ZAİFOĞLU 2522233
+
+Efe YILMAZ 2581197
+
+Group ID: 33
+
+Link: 
+
 
 
 .. toctree::

@@ -1,18 +1,25 @@
 {
-  "covert_channel_code": "Replace it with the [Code] of chosen covert channel type seen in ODTUClass.",
+  "covert_channel_code": "[Code: CSC-PSV-TCP-WS]",
   "send": {
     "parameters": {
-      "parameter1": "p1",
-      "parameter2": 1234,
-      "log_file_name": "Example_UDPTimingInterarrivalChannelSender.log"
+      "log_file_name": "Sender.log",
+      "percentage_1": 2,
+      "percentage_2": 8,
+      "percentage_3": -4,
+      "percentage_4": 16,
+      "initial_window_size": 18000
     }
   },
   "receive": {
     "parameters": {
-      "parameter1": "p1",
-      "parameter2": 1234,
-      "parameter3": "p3",
-      "log_file_name": "Example_UDPTimingInterarrivalChannelReceiver.log"
+      "log_file_name": "Receiver.log",
+      "percentage_1": 2,
+      "percentage_2": 8,
+      "percentage_3": -4,
+      "percentage_4": 16,
+      "range": 1,
+      "initial_window_size": 18000
+
     }
   }
 }
