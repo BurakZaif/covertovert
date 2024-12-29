@@ -38,7 +38,8 @@ The sender side takes five parameters:
 **Encoding Process:**
 1. The sender takes the initial window size and maps the 2-bit chunks of the message to percentage parameters.
 2. Depending on the mapped percentage, the window size is adjusted (increased or decreased).
-3. If the adjusted window size exceeds twice the initial value or drops below half the initial value, it is reset to the initial value to prevent detection or protocol errors.
+3. If the adjusted window size exceeds twice the initial value or drops below half the initial value, it is reset to the initial value to prevent detection or protocol errors. 
+(While doing this, I do not refresh the window_size immediately to make it more undetected. I wait a specific 2 bit combination but if your example do not contain this combination even for once you should change the encoding_dict because you can change the relevant percentage-2bit combination pair form there.)
 4. The manipulated window size is inserted into the TCP header.
 5. An optional fake payload can be added to make the communication more realistic.
 
@@ -65,10 +66,11 @@ To ensure stability and correct operation, adhere to the following guidelines:
 - **Percentage Parameters:**
   - Each percentage value must differ from others by at least `2*(range + 1)` to avoid overlap. Also any percentage should not be zero. 
   - Give them as integer values.
+  - First percentage value should a positive value and third one should be negative. The reason is that at least one of them should be positive and negative. All of should not be positive or negative to not detect. So I choose first and third one to imply this.
 - **Initial Window Size:**
   - Range: 8,000 to 25,000 (optimal values to minimize detection risk and errors).
   - Avoid values below 5,000 or above 30,000 as they may cause stability issues.
-- **Range Parameter:** Must not exceed 3 to maintain decoding accuracy. Its range is can be 0-3.
+- **Range Parameter:** Must not exceed 3 to maintain decoding accuracy. Its range is can be 0-3. (This parameter is not necessary for implementation but I define this for ease of use and more guraanteed borders between percentages.)
 
 ## Contributors
 - Burak Zaifoğlu

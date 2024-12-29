@@ -46,7 +46,7 @@ class MyCovertChannel(CovertChannelBase):
             - We also add a fake payload to the packet to make it more realistic.
         """
 
-        start_time = time.time()
+
         payload = self.generate_random_binary_message()
         message = self.generate_random_message(16, 16)
         self.log_message(message, log_file_name)
@@ -64,6 +64,7 @@ class MyCovertChannel(CovertChannelBase):
         payload_bits = ''.join(format(ord(c), '08b') for c in payload)
         payload_index = 0
 
+        start_time = time.time()
         for i in range(0, len(binary_message), 2):
             bits = binary_message[i:i+2]
             
